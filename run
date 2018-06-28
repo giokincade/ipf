@@ -1,3 +1,10 @@
 #! /bin/bash
+set -e
+set -x
 
-docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan jupyter/datascience-notebook
+docker run -it --rm \
+    -p 8888:8888 \
+    -v $(pwd):/home/jovyan \
+    jupyter/datascience-notebook \
+    start-notebook.sh \
+    --NotebookApp.token=''
